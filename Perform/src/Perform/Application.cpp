@@ -1,5 +1,6 @@
 #include "Application.h"
-
+#include "Events/ApplicationEvent.h"
+#include "Log.h"
 
 namespace Perform {
 
@@ -15,9 +16,11 @@ namespace Perform {
 
 	}
 
+
 	void Application::Run()
 	{
 		while (true);
 	}
+
 
 }
