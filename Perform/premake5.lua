@@ -17,7 +17,7 @@ project "Perform"
         --"%{IncludeDir.glfw}",
         --"%{IncludeDir.glad}",
         --"%{IncludeDir.glm}",
-        --"%{IncludeDir.spdlog}"
+        "%{IncludeDir.spdlog}"
     }
 
     links {
@@ -40,9 +40,24 @@ project "Perform"
         buildoptions "/MTd"
         runtime "Debug"
         symbols "on"
+        defines {
+            "PF_DEBUG"
+        }
 
     filter {"configurations:Release", "system:windows"}
         systemversion "latest"
         buildoptions "/MT"
         runtime "Release"
         optimize "on"
+        defines {
+            "PF_RELEASE"
+        }
+
+    filter {"configurations:Dist", "system:windows"}
+        systemversion "latest"
+        buildoptions "/MT"
+        runtime "Release"
+        optimize "on"
+        defines {
+            "PF_DIST"
+        }

@@ -14,7 +14,8 @@ project "Sandbox"
 
     includedirs {
         "src",
-        "%{IncludeDir.Perform}"
+        "%{IncludeDir.Perform}",
+        "%{IncludeDir.spdlog}"
     }
 
     links {
@@ -31,9 +32,24 @@ project "Sandbox"
         buildoptions "/MTd"
         runtime "Debug"
         symbols "on"
+        defines {
+            "PF_DEBUG"
+        }
 
     filter {"configurations:Release", "system:windows"}
         systemversion "latest"
         buildoptions "/MT"
         runtime "Release"
         optimize "on"
+        defines {
+            "PF_RELEASE"
+        }
+
+    filter {"configurations:Dist", "system:windows"}
+        systemversion "latest"
+        buildoptions "/MT"
+        runtime "Release"
+        optimize "on"
+        defines {
+            "PF_DIST"
+        }
