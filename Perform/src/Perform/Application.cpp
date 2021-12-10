@@ -1,3 +1,4 @@
+#include "pfpch.h"
 #include "Application.h"
 #include "Events/ApplicationEvent.h"
 #include "Log.h"
@@ -15,7 +16,6 @@ namespace Perform {
 	{
 
 	}
-
 
 	void Application::Run()
 	{

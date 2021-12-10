@@ -7,6 +7,9 @@ project "Perform"
     targetdir("../bin/" .. outputdir .. "/%{prj.name}")
     objdir("../bin-int/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "pfpch.h"
+    pchsource "Perform/src/pfpch.cpp"
+
     files {
         "**.cpp",
         "**.h"
@@ -14,7 +17,7 @@ project "Perform"
 
     includedirs {
         "src",
-        --"%{IncludeDir.glfw}",
+        "%{IncludeDir.glfw}",
         --"%{IncludeDir.glad}",
         --"%{IncludeDir.glm}",
         "%{IncludeDir.spdlog}"

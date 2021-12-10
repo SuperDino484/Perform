@@ -8,13 +8,13 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["Perform"] = "%{wks.location}/Perform/src"
-IncludeDir["glfw"] = "%{wks.location}/Dependencies/glfw/include"
-IncludeDir["glad"] = "%{wks.location}/Dependencies/glad/include"
-IncludeDir["glm"] = "%{wks.location}/Dependencies/glm/include"
-IncludeDir["spdlog"] = "%{wks.location}/Dependencies/spdlog/include"
+IncludeDir["glfw"] = "%{wks.location}/Perform/vendor/glfw/include"
+IncludeDir["glad"] = "%{wks.location}/Perform/vendor/glad/include"
+IncludeDir["glm"] = "%{wks.location}/Perform/vendor/glm/include"
+IncludeDir["spdlog"] = "%{wks.location}/Perform/vendor/spdlog/include"
 
 group "Dependencies"
-    --include "Dependencies/glfw"
+    include "Dependencies/glfw"
     --include "Dependencies/glad"
 group ""
 

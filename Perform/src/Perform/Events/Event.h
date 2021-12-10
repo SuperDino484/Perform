@@ -1,8 +1,6 @@
 #pragma once
+#include "pfpch.h"
 #include "Perform/Core.h"
-#include <string>
-#include <sstream>
-#include <functional>
 
 namespace Perform {
 
@@ -33,7 +31,7 @@ namespace Perform {
 								EventType GetEventType() const override { return GetStaticEventType(); } \
 								const char* GetEventName() const override { return #event_type; } \
 								
-#define EVENT_FILTERS(filters)  int GetFilterFlags() const { return filters; }
+#define EVENT_FILTERS(filters)  int GetFilterFlags() const { return EventFilter::##filters; }
 
 	class Event
 	{
@@ -78,10 +76,5 @@ namespace Perform {
 	private:
 		Event& m_Event;
 	};
-
-	inline std::ostream& operator<<(std::ostream& os, const Event& e)
-	{
-		return os << e.ToString();
-	}
 
 }

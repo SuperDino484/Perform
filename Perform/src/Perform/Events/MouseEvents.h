@@ -8,7 +8,7 @@ namespace Perform {
 	public:
 		int GetMouseButton() const { return m_Button; }
 
-		EVENT_FILTERS(EventFilter::EventTypeInput | EventFilter::EventTypeMouse);
+		EVENT_FILTERS(EventTypeInput | EventTypeMouse);
 
 	protected:
 		MouseButtonEvent(int button)
@@ -47,7 +47,7 @@ namespace Perform {
 		float GetOffsetY() const { return m_OffsetY; }
 
 		EVENT_SETUP(MouseScrolled);
-		EVENT_FILTERS(EventFilter::EventTypeInput | EventFilter::EventTypeMouse);
+		EVENT_FILTERS(EventTypeInput | EventTypeMouse);
 
 
 		std::string ToString() const override
@@ -72,7 +72,7 @@ namespace Perform {
 		float GetY() const { return m_PosY; }
 
 		EVENT_SETUP(MouseMoved);
-		EVENT_FILTERS(EventFilter::EventTypeInput | EventFilter::EventTypeMouse);
+		EVENT_FILTERS(EventTypeInput | EventTypeMouse);
 
 		std::string ToString() const override
 		{

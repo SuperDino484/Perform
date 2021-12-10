@@ -1,10 +1,9 @@
 #pragma once
 
-
+#include "pfpch.h"
 #include "Core.h"
 #include "spdlog/spdlog.h"
 
-#include <memory>
 
 namespace Perform {
 

@@ -8,7 +8,7 @@ namespace Perform {
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
 
-		EVENT_FILTERS(EventFilter::EventTypeInput | EventFilter::EventTypeKeyBoard);
+		EVENT_FILTERS(EventTypeInput | EventTypeKeyBoard);
 
 	protected:
 		KeyEvent(int keycode)

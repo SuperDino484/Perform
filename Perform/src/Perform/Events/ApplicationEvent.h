@@ -10,7 +10,7 @@ namespace Perform {
 			: m_Width(width), m_Height(height) {}
 
 		EVENT_SETUP(WindowResize);
-		EVENT_FILTERS(EventFilter::EventTypeApplication);
+		EVENT_FILTERS(EventTypeApplication);
 
 
 		std::string ToString() const override
@@ -32,7 +32,7 @@ namespace Perform {
 		WindowCloseEvent() {}
 
 		EVENT_SETUP(WindowClose);
-		EVENT_FILTERS(EventFilter::EventTypeApplication);
+		EVENT_FILTERS(EventTypeApplication);
 
 	};
 
@@ -42,7 +42,7 @@ namespace Perform {
 		WindowFocusEvent() {}
 
 		EVENT_SETUP(WindowFocus);
-		EVENT_FILTERS(EventFilter::EventTypeApplication);
+		EVENT_FILTERS(EventTypeApplication);
 	};
 
 	class WindowLostFocusEvent : public Event
@@ -51,17 +51,17 @@ namespace Perform {
 		WindowLostFocusEvent() {}
 
 		EVENT_SETUP(WindowLostFocus);
-		EVENT_FILTERS(EventFilter::EventTypeApplication);
+		EVENT_FILTERS(EventTypeApplication);
 	};
 
-	class WindowMovedEvent : public Event
+	class WindowMoveEvent : public Event
 	{
 	public:
-		WindowMovedEvent(unsigned int xpos, unsigned int ypos)
+		WindowMoveEvent(unsigned int xpos, unsigned int ypos)
 			: m_PosX(xpos), m_PosY(ypos) {}
 
 		EVENT_SETUP(WindowMoved);
-		EVENT_FILTERS(EventFilter::EventTypeApplication);
+		EVENT_FILTERS(EventTypeApplication);
 
 		std::string ToString() const override
 		{

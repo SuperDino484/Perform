@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Perform/Core.h"
 
 namespace Perform {
 
