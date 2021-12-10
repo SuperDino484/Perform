@@ -6,6 +6,7 @@
 #include "Perform/Events/Event.h"
 #include "Perform/Events/ApplicationEvent.h"
 
+
 namespace Perform {
 
 	class Application

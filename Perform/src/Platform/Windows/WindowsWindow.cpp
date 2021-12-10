@@ -4,6 +4,9 @@
 #include "Perform/Events/KeyEvent.h"
 #include "Perform/Events/MouseEvent.h"
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
 namespace Perform {
 
 	Window* Window::Create(const std::string& title /* = "Perform" */, unsigned int width /* = 720 */, unsigned int height /* = 480 */)
@@ -69,10 +72,15 @@ namespace Perform {
 
 		m_Window = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
 		glfwMakeContextCurrent(m_Window);
+
+		/* Initialize glad */
+		success = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		PF_CORE_ASSERT(success, "Could not initialize glad");
+
 		glfwSetWindowUserPointer(m_Window, &m_WindowData);
 		SetVsync(true);
 
-		/* Sets up glfw callbacks */
+		/* Sets up GLFW callbacks */
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
 			{
 				WindowData& data = *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window));

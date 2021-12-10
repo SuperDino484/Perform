@@ -15,7 +15,7 @@ project "Sandbox"
     includedirs {
         "src",
         "%{IncludeDir.Perform}",
-        "%{IncludeDir.spdlog}"
+        "%{IncludeDir.spdlog}",
     }
 
     links {

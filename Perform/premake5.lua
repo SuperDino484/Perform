@@ -18,14 +18,14 @@ project "Perform"
     includedirs {
         "src",
         "%{IncludeDir.glfw}",
-        --"%{IncludeDir.glad}",
+        "%{IncludeDir.Glad}",
         --"%{IncludeDir.glm}",
         "%{IncludeDir.spdlog}"
     }
 
     links {
         "glfw",
-        --"glad",
+        "glad",
         "opengl32"
     }
 

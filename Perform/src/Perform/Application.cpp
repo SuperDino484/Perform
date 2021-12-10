@@ -3,9 +3,9 @@
 #include "Events/ApplicationEvent.h"
 #include "Log.h"
 
+#include <glad/glad.h>
+
 namespace Perform {
-
-
 
 	Application::Application()
 	{
@@ -23,6 +23,9 @@ namespace Perform {
 	{
 		while (m_Running)
 		{
+			glClear(GL_COLOR_BUFFER_BIT);
+			glClearColor(0.3f, 0.5f, 0.8f, 1.0f);
+
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
