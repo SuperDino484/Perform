@@ -23,6 +23,9 @@ namespace Perform {
 	{
 		while (m_Running)
 		{
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
+
 			m_Window->OnUpdate();
 		}
 	}
@@ -32,8 +35,25 @@ namespace Perform {
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(PF_BIND_EVENT_FN(Application::OnWindowClose));
 
+		/* Loop through layers backwards */
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
+		{
+			(*--it)->OnEvent(e);
+			if (e.IsHandled())
+				break;
+		}
 
 		PF_CORE_TRACE(e.ToString());
+	}
+
+	void Application::PushOverlay(Layer* overlay)
+	{
+		m_LayerStack.PushOverlay(overlay);
+	}
+
+	void Application::PushLayer(Layer* layer)
+	{
+		m_LayerStack.PushLayer(layer);
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)

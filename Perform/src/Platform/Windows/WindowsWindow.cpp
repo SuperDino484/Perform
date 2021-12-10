@@ -2,7 +2,7 @@
 #include "WindowsWindow.h"
 #include "Perform/Events/ApplicationEvent.h"
 #include "Perform/Events/KeyEvent.h"
-#include "Perform/Events/MouseEvents.h"
+#include "Perform/Events/MouseEvent.h"
 
 namespace Perform {
 

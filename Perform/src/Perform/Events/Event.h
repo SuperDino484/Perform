@@ -42,6 +42,8 @@ namespace Perform {
 		virtual int GetFilterFlags() const = 0;
 		virtual std::string ToString() const { return GetEventName(); }
 
+		inline bool IsHandled() { return m_Handled; }
+
 		inline bool IsInCategory(EventFilter filter)
 		{
 			return GetFilterFlags() & filter;
