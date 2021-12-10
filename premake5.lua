@@ -14,7 +14,7 @@ IncludeDir["glm"] = "%{wks.location}/Perform/vendor/glm/include"
 IncludeDir["spdlog"] = "%{wks.location}/Perform/vendor/spdlog/include"
 
 group "Dependencies"
-    include "Dependencies/glfw"
+    include "Perform/vendor/glfw"
     --include "Dependencies/glad"
 group ""
 

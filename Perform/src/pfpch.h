@@ -13,6 +13,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Perform/Log.h"
+
 #ifdef PF_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

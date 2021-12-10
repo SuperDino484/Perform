@@ -9,7 +9,9 @@ namespace Perform {
 
 	Application::Application()
 	{
-
+		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_Window->SetEventCallback(PF_BIND_EVENT_FN(Application::OnEvent));
+		m_Running = true;
 	}
 
 	Application::~Application()
@@ -19,8 +21,25 @@ namespace Perform {
 
 	void Application::Run()
 	{
-		while (true);
+		while (m_Running)
+		{
+			m_Window->OnUpdate();
+		}
 	}
 
+	void Application::OnEvent(Event& e)
+	{
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowCloseEvent>(PF_BIND_EVENT_FN(Application::OnWindowClose));
+
+
+		PF_CORE_TRACE(e.ToString());
+	}
+
+	bool Application::OnWindowClose(WindowCloseEvent& e)
+	{
+		m_Running = false;
+		return true;
+	}
 
 }

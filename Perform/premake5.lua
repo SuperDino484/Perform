@@ -8,11 +8,11 @@ project "Perform"
     objdir("../bin-int/" .. outputdir .. "/%{prj.name}")
 
     pchheader "pfpch.h"
-    pchsource "Perform/src/pfpch.cpp"
+    pchsource "src/pfpch.cpp"
 
     files {
-        "**.cpp",
-        "**.h"
+        "src/**.cpp",
+        "src/**.h"
     }
 
     includedirs {
@@ -24,9 +24,9 @@ project "Perform"
     }
 
     links {
-        --"glfw",
+        "glfw",
         --"glad",
-        --"opengl32"
+        "opengl32"
     }
 
     defines {
