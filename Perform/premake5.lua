@@ -20,17 +20,20 @@ project "Perform"
         "%{IncludeDir.glfw}",
         "%{IncludeDir.Glad}",
         --"%{IncludeDir.glm}",
-        "%{IncludeDir.spdlog}"
+        "%{IncludeDir.spdlog}",
+        "%{IncludeDir.ImGui}",
     }
 
     links {
         "glfw",
         "glad",
-        "opengl32"
+        "ImGui",
+        "opengl32",
     }
 
     defines {
-        "GLFW_INCLUDE_NONE"
+        "GLFW_INCLUDE_NONE",
+        "IMGUI_IMPL_OPENGL_LOADER_CUSTOM"
     }
 
     filter "system:windows"

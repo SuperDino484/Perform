@@ -97,6 +97,13 @@ namespace Perform {
 				data.EventCallback(e);
 			});
 
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int codepoint)
+			{
+				WindowData& data = *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window));
+				KeyTypedEvent e(codepoint);
+				data.EventCallback(e);
+			});
+
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
 			{
 				WindowData& data = *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window));

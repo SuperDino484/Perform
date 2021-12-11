@@ -55,4 +55,22 @@ namespace Perform {
 		}
 	};
 
+	class KeyTypedEvent : public KeyEvent
+	{
+	public:
+		KeyTypedEvent(int keycode)
+			: KeyEvent(keycode) {}
+
+		EVENT_SETUP(KeyTyped);
+
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << GetEventName() << "(key=" << m_KeyCode << ")";
+			return ss.str();
+		}
+	};
+
+
 }

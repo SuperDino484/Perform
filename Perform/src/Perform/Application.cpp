@@ -7,8 +7,11 @@
 
 namespace Perform {
 
+	Application* Application::s_Instance = nullptr;
+
 	Application::Application()
 	{
+		s_Instance = this;
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(PF_BIND_EVENT_FN(Application::OnEvent));
 		m_Running = true;
@@ -39,9 +42,9 @@ namespace Perform {
 		dispatcher.Dispatch<WindowCloseEvent>(PF_BIND_EVENT_FN(Application::OnWindowClose));
 
 		/* Loop through layers backwards */
-		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
+		for (auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); ++it)
 		{
-			(*--it)->OnEvent(e);
+			(*it)->OnEvent(e);
 			if (e.IsHandled())
 				break;
 		}
@@ -52,11 +55,13 @@ namespace Perform {
 	void Application::PushOverlay(Layer* overlay)
 	{
 		m_LayerStack.PushOverlay(overlay);
+		overlay->OnAttach();
 	}
 
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)

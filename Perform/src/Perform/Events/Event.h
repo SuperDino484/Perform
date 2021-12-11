@@ -10,7 +10,7 @@ namespace Perform {
 	{
 		None = 0,
 		WindowResize, WindowClose, WindowFocus, WindowLostFocus, WindowMoved,
-		KeyPressed, KeyReleased,
+		KeyPressed, KeyReleased, KeyTyped,
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled,
 		AppTick, AppUpdate, AppRender
 	};

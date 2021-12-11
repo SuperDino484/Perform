@@ -10,12 +10,14 @@ IncludeDir = {}
 IncludeDir["Perform"] = "%{wks.location}/Perform/src"
 IncludeDir["glfw"] = "%{wks.location}/Perform/vendor/glfw/include"
 IncludeDir["Glad"] = "%{wks.location}/Perform/vendor/Glad/include"
+IncludeDir["ImGui"] = "%{wks.location}/Perform/vendor/imgui"
 IncludeDir["glm"] = "%{wks.location}/Perform/vendor/glm/include"
 IncludeDir["spdlog"] = "%{wks.location}/Perform/vendor/spdlog/include"
 
 group "Dependencies"
     include "Perform/vendor/glfw"
     include "Perform/vendor/Glad"
+    include "Perform/vendor/ImGui"
 group ""
 
 include "Perform"

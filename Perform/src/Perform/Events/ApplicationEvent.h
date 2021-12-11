@@ -12,6 +12,8 @@ namespace Perform {
 		EVENT_SETUP(WindowResize);
 		EVENT_FILTERS(EventTypeApplication);
 
+		inline unsigned int GetWidth() const { return m_Width; }
+		inline unsigned int GetHeight() const { return m_Height; }
 
 		std::string ToString() const override
 		{
